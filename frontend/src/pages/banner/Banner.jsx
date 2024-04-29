@@ -10,12 +10,15 @@ const Banner = () => {
   return (
     <div
       id="carouselExampleSlidesOnly"
-      className="banner carousel slide  "
+      className="banner carousel slide"
       data-bs-ride="carousel"
     >
       <div className="carousel-inner">
-        {Big.map((item) => (
-          <div className="carousel-item active" key={item.id}>
+        {Big.map((item, index) => (
+          <div
+            className={`carousel-item${index === 0 ? " active" : ""}`}
+            key={item.id}
+          >
             <img className="d-block w-100" src={item.img} alt={item.title} />
             <h2 className="h2">{item.title}</h2>
           </div>
