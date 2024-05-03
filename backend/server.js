@@ -9,10 +9,11 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 console.log(PORT);
 const BASE_URL = process.env.BASE_URL;
-app.use("/books", bookRoutes);
+
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
+app.use("/books", bookRoutes);
 
 async function DataBase() {
   mongoose.connect(BASE_URL);

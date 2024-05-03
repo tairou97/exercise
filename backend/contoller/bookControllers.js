@@ -4,7 +4,6 @@ const GetBooks = async (req, res) => {
   try {
     const books = await Books.find({});
     res.status(200).json(books);
-    console.log(books);
   } catch (error) {
     res.status(400).json({ error: "Data not Found" });
   }
