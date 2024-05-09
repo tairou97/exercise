@@ -2,6 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import bookRoutes from "./routes/booksRoutes.js";
+import signupRoutes from "./routes/signupRoutes.js";
+import createAdminAccunt from "./scripts/admin.js";
 import cors from "cors";
 import bodyParser from "body-parser";
 dotenv.config();
@@ -13,7 +15,9 @@ const BASE_URL = process.env.BASE_URL;
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
+createAdminAccunt();
 app.use("/books", bookRoutes);
+app.use("/user", signupRoutes);
 
 async function DataBase() {
   mongoose.connect(BASE_URL);
