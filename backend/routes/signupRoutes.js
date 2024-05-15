@@ -1,8 +1,7 @@
 import express from "express";
 
+import { GetSignup, PosteSignup } from "../contoller/signupController.js";
 const signupRoutes = express.Router();
 
-import { GetUser, PosteUser } from "../contoller/userController.js";
-
-signupRoutes.get("/", GetUser).post("/", PosteUser);
+signupRoutes.get("/signup", GetSignup).post("/signup", PosteSignup);
 export default signupRoutes;

@@ -21,14 +21,15 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/user", {
+      const res = await fetch("http://localhost:3000/signup/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-      const result = res.json();
+      const result = await res.json();
+
       navigate("/login");
     } catch (error) {
       console.log(error, "error");

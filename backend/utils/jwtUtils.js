@@ -2,7 +2,6 @@ import jwt from "jsonwebtoken";
 import crypto from "crypto";
 
 const mykey = crypto.randomBytes(32).toString("hex");
-console.log(mykey);
 
 const generateToken = (user) => {
   const payload = {
@@ -10,7 +9,7 @@ const generateToken = (user) => {
     email: user.email,
     role: user.role,
   };
-  return jwt.sign(payload, mykey, { expiresIn: "d3" });
+  return jwt.sign(payload, mykey, { expiresIn: "3d" });
 };
-
-export default generateToken;
+console.log(generateToken);
+export { generateToken };
